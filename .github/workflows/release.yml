@@ -1,0 +1,105 @@
+name: Validate & Release
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write   # needed to create releases
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      # ── 1. Checkout with full history (needed for git diff) ─────────────────
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # ── 2. Setup Node.js ────────────────────────────────────────────────────
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # ── 3. Validate .flashcards format ──────────────────────────────────────
+      - name: Validate flashcard format
+        run: node scripts/validate.mjs
+
+      # ── 4. Determine version bump ───────────────────────────────────────────
+      - name: Determine version
+        id: version
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Get latest release tag (empty string if none exists)
+          PREV_TAG=$(gh release list --limit 1 --json tagName -q '.[0].tagName' 2>/dev/null || echo "")
+          echo "Previous tag: '${PREV_TAG}'"
+
+          if [ -z "$PREV_TAG" ]; then
+            # ── First release ──
+            echo "new_tag=V1.0"         >> $GITHUB_OUTPUT
+            echo "bump_type=initial"    >> $GITHUB_OUTPUT
+            echo "release_notes=🎉 Initial release of Zapwise flashcards" >> $GITHUB_OUTPUT
+          else
+            # ── Compare with previous release using git diff ──
+            git fetch --tags --quiet
+
+            # Count removed cards (lines with separator that start with -)
+            REMOVED=$(git diff "${PREV_TAG}" HEAD -- '*.flashcards' \
+              | grep '^-[^-]' \
+              | grep -cE ' (<>|=>|<=) ' \
+              || echo "0")
+
+            # Count added cards
+            ADDED=$(git diff "${PREV_TAG}" HEAD -- '*.flashcards' \
+              | grep '^+[^+]' \
+              | grep -cE ' (<>|=>|<=) ' \
+              || echo "0")
+
+            echo "Removed cards: $REMOVED"
+            echo "Added cards:   $ADDED"
+
+            # Parse major/minor from previous tag (e.g. V2.3 → 2, 3)
+            MAJOR=$(echo "$PREV_TAG" | grep -oP '(?<=V)\d+(?=\.)')
+            MINOR=$(echo "$PREV_TAG" | grep -oP '(?<=\.)\d+$')
+
+            if [ "${REMOVED:-0}" -gt "0" ]; then
+              # ── Breaking change: cards were deleted ──
+              NEW_MAJOR=$((MAJOR + 1))
+              NEW_TAG="V${NEW_MAJOR}.0"
+              BUMP="major"
+              NOTES="💥 Breaking change: ${REMOVED} card(s) removed"
+              [ "${ADDED:-0}" -gt "0" ] && NOTES="${NOTES}, ${ADDED} card(s) added"
+            else
+              # ── Minor: only additions / edits ──
+              NEW_MINOR=$((MINOR + 1))
+              NEW_TAG="V${MAJOR}.${NEW_MINOR}"
+              BUMP="minor"
+              if [ "${ADDED:-0}" -gt "0" ]; then
+                NOTES="✨ ${ADDED} card(s) added/updated"
+              else
+                NOTES="🔧 Configuration or metadata updated"
+              fi
+            fi
+
+            echo "Bump type: $BUMP  →  $PREV_TAG → $NEW_TAG"
+            echo "new_tag=$NEW_TAG"     >> $GITHUB_OUTPUT
+            echo "bump_type=$BUMP"      >> $GITHUB_OUTPUT
+            echo "release_notes=$NOTES" >> $GITHUB_OUTPUT
+          fi
+
+      # ── 5. Create GitHub Release ────────────────────────────────────────────
+      - name: Create Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${{ steps.version.outputs.new_tag }}" \
+            --title "Zapwise Cards ${{ steps.version.outputs.new_tag }}" \
+            --notes "${{ steps.version.outputs.release_notes }}" \
+            --latest
+
+          echo ""
+          echo "✅ Release created: ${{ steps.version.outputs.new_tag }}"
+          echo "   Bump type: ${{ steps.version.outputs.bump_type }}"
