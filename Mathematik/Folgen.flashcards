@@ -1,0 +1,50 @@
+# Folgen – Begriffe und Definitionen
+
+# Grundbegriffe
+Folge <> Geordnete Liste von Zahlen, deren Glieder durch natürliche Zahlen nummeriert sind (Schreibweise: a1, a2, a3, ... oder (an))
+Folgenglied <> Einzelner Wert einer Folge (Bezeichnung: an)
+Index <> Nummer eines Folgenglieds (das n in an)
+Bildungsgesetz <> Vorschrift, mit der die Folgenglieder bestimmt werden (z. B. an = 2n + 1)
+Anfangsglied <> Erstes angegebenes Glied einer Folge (meist a1 oder a0)
+Nachfolgeglied <> Das auf an folgende Glied (Bezeichnung: an+1)
+
+# Darstellungsformen
+Explizite Darstellung <> Das n-te Folgenglied wird direkt in Abhängigkeit von n angegeben (an = f(n))
+Rekursive Darstellung <> Ein Folgenglied wird aus vorherigen Gliedern berechnet (an+1 = f(an))
+Rekursive Folge <> Folge, die durch Anfangsglied und Rekursionsvorschrift festgelegt ist (a1 gegeben, an+1 = f(an))
+Iteration <> Wiederholte Anwendung derselben Rechenvorschrift (xn+1 = f(xn))
+
+# Arten von Folgen
+Endliche Folge <> Folge mit endlich vielen Gliedern (a1, ..., ak)
+Unendliche Folge <> Folge mit unendlich vielen Gliedern ((an) mit n in N)
+Zahlenfolge <> Folge, deren Glieder reelle Zahlen sind (an aus R)
+Arithmetische Folge <> Folge mit konstanter Differenz zweier benachbarter Glieder (an = a1 + (n-1)*d)
+Geometrische Folge <> Folge mit konstantem Quotienten zweier benachbarter Glieder (an = a1 * q^(n-1))
+Alternierende Folge <> Folge, deren Vorzeichen regelmäßig wechseln (z. B. an = (-1)^n * bn)
+
+# Differenz und Quotient
+Differenz (arithmetische Folge) <> Abstand zweier benachbarter Glieder (d = an+1 - an)
+Quotient (geometrische Folge) <> Verhältnis zweier benachbarter Glieder (q = an+1 / an, falls an ≠ 0)
+
+# Monotonie
+Monotonie <> Beschreibung, ob eine Folge steigt oder fällt (Vergleich von an+1 mit an)
+Monoton steigend <> Jedes Nachfolgeglied ist mindestens so groß wie das vorherige (an+1 >= an)
+Monoton fallend <> Jedes Nachfolgeglied ist höchstens so groß wie das vorherige (an+1 <= an)
+Streng monoton steigend <> Jedes Nachfolgeglied ist größer als das vorherige (an+1 > an)
+Streng monoton fallend <> Jedes Nachfolgeglied ist kleiner als das vorherige (an+1 < an)
+
+# Beschränktheit
+Beschränkte Folge <> Alle Folgenglieder liegen zwischen einer unteren und einer oberen Schranke (m <= an <= M)
+Obere Schranke <> Zahl, die von keinem Folgenglied überschritten wird (an <= M für alle n)
+Untere Schranke <> Zahl, die von keinem Folgenglied unterschritten wird (m <= an für alle n)
+
+# Grenzwert und Konvergenz
+Grenzwert (Folge) <> Zahl, der sich die Folgenglieder für große n beliebig annähern (lim(n→∞) an = a)
+Konvergenz (Folge) <> Eine Folge besitzt einen endlichen Grenzwert (an → a)
+Divergenz (Folge) <> Eine Folge besitzt keinen endlichen Grenzwert (lim(n→∞) an existiert nicht oder ist unendlich)
+Nullfolge <> Folge, deren Grenzwert 0 ist (lim(n→∞) an = 0)
+Häufungswert <> Wert, dem sich unendlich viele Folgenglieder beliebig annähern (Teilfolge ank → h)
+
+# Kriterien
+Epsilon-Kriterium <> Zu jedem ε > 0 gibt es ein N, sodass für alle n >= N gilt: |an - a| < ε (präzise Definition der Konvergenz)
+Monotoniekriterium <> Jede monotone und beschränkte Folge ist konvergent (monoton steigend + nach oben beschränkt => konvergent; monoton fallend + nach unten beschränkt => konvergent)

@@ -1,0 +1,48 @@
+# Reihen – Begriffe, Konvergenzkriterien und logische Grundbegriffe
+
+# Grundbegriffe
+Reihe <> Summe der Glieder einer Folge (Schreibweise: Summe von an, n=1 bis unendlich)
+Partialsumme <> Endliche Summe der ersten k Reihenglieder (sk = a1 + a2 + ... + ak)
+Partialsummenfolge <> Folge der endlichen Teilsummen einer Reihe ((sk) mit sk = Summe von an, n=1 bis k)
+Summe einer Reihe <> Grenzwert der Partialsummen, falls er existiert (S = lim(k→∞) sk)
+Grenzwert der Partialsummen <> Wert, gegen den die Partialsummenfolge konvergiert (lim(k→∞) sk)
+Summenzeichen <> Symbol für eine Summe (Σ)
+Laufindex <> Variable, die beim Summieren die einzelnen Werte durchläuft (n in Σ an)
+Untere Summationsgrenze <> Startwert des Laufindex (z. B. 1 in Σ(n=1 bis k) an)
+Obere Summationsgrenze <> Endwert des Laufindex bei endlichen Summen (z. B. k in Σ(n=1 bis k) an)
+
+# Arten von Reihen
+Endliche Reihe <> Summe endlich vieler Folgenglieder (Σ(n=1 bis k) an)
+Unendliche Reihe <> Summe unendlich vieler Folgenglieder, verstanden über Partialsummen (Σ(n=1 bis ∞) an)
+Arithmetische Reihe <> Summe der Glieder einer arithmetischen Folge (Σ(n=1 bis k) an = k/2 * (a1 + ak))
+Geometrische Reihe <> Summe der Glieder einer geometrischen Folge (Σ(n=0 bis k) a0*q^n)
+Alternierende Reihe <> Reihe mit regelmäßig wechselnden Vorzeichen (Σ(-1)^n * bn oder Σ(-1)^(n+1) * bn)
+Harmonische Reihe <> Reihe der Kehrwerte der natürlichen Zahlen; sie divergiert (Σ 1/n)
+Dirichletreihe <> Reihe der Form Σ 1/n^s; konvergiert für s > 1, divergiert für s <= 1
+Potenzreihe <> Reihe mit Potenzen einer Variablen (Σ(n=0 bis ∞) an*(x-x0)^n)
+Taylorreihe <> Potenzreihe, die eine Funktion mithilfe ihrer Ableitungen an einer Stelle beschreibt (f(x) = Σ f^(n)(x0)/n! * (x-x0)^n)
+Fourierreihe <> Darstellung periodischer Funktionen durch Sinus- und Kosinusanteile (f(x) ~ a0/2 + Σ(an*cos(nx) + bn*sin(nx)))
+
+# Konvergenz und Divergenz
+Konvergente Reihe <> Die Partialsummenfolge besitzt einen endlichen Grenzwert (lim(k→∞) sk = S)
+Divergente Reihe <> Die Partialsummenfolge besitzt keinen endlichen Grenzwert (lim(k→∞) sk existiert nicht oder ist unendlich)
+Konvergenzradius <> Radius des Intervalls um x0, in dem eine Potenzreihe konvergiert (Konvergenz für |x - x0| < R)
+
+# Formeln
+Geometrische Summenformel <> Formel für die endliche geometrische Reihe (Σ(n=0 bis k) a0*q^n = a0 * (1-q^(k+1))/(1-q) für q ≠ 1)
+Unendliche geometrische Reihe <> Grenzwert der geometrischen Reihe für |q| < 1 (Σ(n=0 bis ∞) a0*q^n = a0/(1-q))
+
+# Konvergenzkriterien
+Nullfolgenkriterium <> Ist eine Reihe konvergent, dann muss die Folge ihrer Reihenglieder eine Nullfolge sein (wenn lim(n→∞) an ≠ 0, dann divergiert Σan)
+Majorantenkriterium <> Eine Reihe mit nichtnegativen Gliedern konvergiert, wenn sie durch eine konvergente größere Reihe abgeschätzt wird (0 <= an <= bn und Σbn konvergent => Σan konvergent)
+Minorantenkriterium <> Eine Reihe mit nichtnegativen Gliedern divergiert, wenn sie eine divergente kleinere Reihe nach unten abschätzt (0 <= bn <= an und Σbn divergent => Σan divergent)
+Quotientenkriterium <> Kriterium zur Konvergenz über den Grenzwert benachbarter Beträge (q = lim|an+1/an|; q < 1 => konvergent, q > 1 => divergent, q = 1 => keine Aussage)
+
+# Logische Begriffe bei Kriterien
+Notwendige Bedingung <> Bedingung, die erfüllt sein muss, damit eine Aussage wahr sein kann (Beispiel: Konvergenz einer Reihe => Glieder bilden eine Nullfolge)
+Hinreichende Bedingung <> Bedingung, aus der sicher folgt, dass eine Aussage wahr ist (Beispiel: Folge monoton und beschränkt => konvergiert)
+Notwendig und hinreichend <> Bedingung, die genau dann erfüllt ist, wenn die Aussage wahr ist (A <=> B: aus A folgt B und aus B folgt A)
+Notwendig, aber nicht hinreichend <> Bedingung, die erfüllt sein muss, aber allein nicht ausreicht (Beispiel: Nullfolgenkriterium – lim an = 0 reicht nicht für Konvergenz; harmonische Reihe divergiert trotzdem)
+Hinreichend, aber nicht notwendig <> Bedingung, die die Aussage sicher beweist, aber nicht die einzige Möglichkeit ist (Beispiel: manche Konvergenzkriterien sind nicht auf alle konvergenten Reihen anwendbar)
+Keine Aussage möglich <> Kriterium liefert weder Konvergenz noch Divergenz (Beispiel: Quotientenkriterium bei q = 1)
+Gegenbeispiel <> Beispiel, das zeigt, dass eine allgemeine Aussage falsch ist (Beispiel: harmonische Reihe zeigt, dass lim an = 0 allein keine Konvergenz garantiert)
