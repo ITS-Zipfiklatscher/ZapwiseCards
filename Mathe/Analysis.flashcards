@@ -1,0 +1,15 @@
+# Analysis Grundlagen
+
+Ableitung von x^n => n * x^(n-1)
+Ableitung von sin(x) => cos(x)
+Ableitung von cos(x) => -sin(x)
+Ableitung von e^x => e^x
+Ableitung von ln(x) => 1/x
+
+Stammfunktion von x^n <= x^(n+1) / (n+1) + C
+Stammfunktion von e^x <= e^x + C
+Stammfunktion von 1/x <= ln|x| + C
+
+Kettenregel <> (f(g(x)))' = f'(g(x)) * g'(x)
+Produktregel <> (u*v)' = u'*v + u*v'
+Quotientenregel <> (u/v)' = (u'*v - u*v') / v^2

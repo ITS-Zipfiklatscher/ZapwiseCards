@@ -1,0 +1,17 @@
+# Datenstrukturen
+
+Array: Zugriff Zeitkomplexität => O(1)
+Linked List: Einfügen am Anfang => O(1)
+Linked List: Suche => O(n)
+Binary Search Tree: Suche (average) => O(log n)
+Hash Table: Einfügen (average) => O(1)
+
+Stack: Prinzip <> LIFO (Last In, First Out)
+Queue: Prinzip <> FIFO (First In, First Out)
+
+Bubble Sort Zeitkomplexität <> O(n²)
+Merge Sort Zeitkomplexität <> O(n log n)
+Quick Sort Zeitkomplexität (average) <> O(n log n)
+
+Was ist Rekursion? => Eine Funktion die sich selbst aufruft
+Basisfall bei Rekursion <= Die Bedingung die die Rekursion beendet

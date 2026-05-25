@@ -1,0 +1,14 @@
+# Geometrie Formeln
+
+Umfang Kreis => 2 * π * r
+Fläche Kreis => π * r²
+Volumen Kugel => (4/3) * π * r³
+Oberfläche Kugel <> 4 * π * r²
+
+Satz des Pythagoras <> a² + b² = c²
+Fläche Dreieck => (Grundlinie * Höhe) / 2
+Fläche Trapez => (a + c) / 2 * h
+
+sin(30°) <> 0.5
+cos(60°) <> 0.5
+tan(45°) <> 1
