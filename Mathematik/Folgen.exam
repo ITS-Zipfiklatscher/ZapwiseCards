@@ -1,0 +1,53 @@
+# Klausur: Folgen und Grenzwerte
+
+? Erkläre den Unterschied zwischen einer expliziten und einer rekursiven Darstellung einer Folge.
+Gib für jede Darstellungsform ein Beispiel an. [6]
+
+? Gegeben ist die Folge mit dem Bildungsgesetz:
+  aₙ = (2n − 1) / (n + 3)
+
+  a) Berechne die ersten vier Folgenglieder a₁, a₂, a₃, a₄.
+  b) Bestimme den Grenzwert lim(n→∞) aₙ. [8]
+
+? Die Folge (aₙ) ist rekursiv definiert durch:
+  a₁ = 3,  aₙ₊₁ = aₙ + 4
+
+  a) Berechne a₂, a₃, a₄.
+  b) Gib eine explizite Darstellung für aₙ an.
+  c) Um welche Art von Folge handelt es sich? Begründe. [8]
+
+? Gegeben ist die geometrische Folge mit a₁ = 2 und q = −½.
+  a) Berechne die ersten fünf Glieder.
+  b) Ist die Folge monoton? Begründe.
+  c) Ist die Folge beschränkt? Gib gegebenenfalls obere und untere Schranken an.
+  d) Bestimme den Grenzwert. [10]
+
+? Untersuche die folgende Folge auf Monotonie.
+  Beweise deine Aussage durch Vergleich von aₙ₊₁ und aₙ.
+
+  aₙ = n² − 3n + 1 [6]
+
+? Erkläre das Monotoniekriterium für Konvergenz.
+  Formuliere es vollständig und gib an, welche zwei Voraussetzungen erfüllt sein müssen. [5]
+
+? Gegeben ist die Folge aₙ = (3n² + 2n) / (n² − 1).
+
+  Bestimme den Grenzwert mithilfe der Grenzwertsätze.
+  Zeige alle Umformungsschritte. [10]
+
+? Die Folge (aₙ) sei definiert durch:
+  a₁ = 1,  aₙ₊₁ = ½ · aₙ + 1
+
+  a) Berechne a₂, a₃, a₄, a₅.
+  b) Vermute anhand der Werte einen Grenzwert g.
+  c) Bestimme g rechnerisch aus der Fixpunktgleichung g = ½ · g + 1. [8]
+
+? Eine Folge hat die Häufungswerte 1 und −1.
+  Kann diese Folge konvergent sein? Begründe deine Antwort. [4]
+
+? Entscheide jeweils, ob die Folge konvergiert oder divergiert. Begründe kurz.
+
+  i)  aₙ = (−1)ⁿ
+  ii) aₙ = 1/n²
+  iii) aₙ = n/(n+1)
+  iv) aₙ = n · (−1)ⁿ [8]
