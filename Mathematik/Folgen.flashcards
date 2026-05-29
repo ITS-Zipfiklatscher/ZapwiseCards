@@ -48,3 +48,5 @@ Häufungswert => Wert, dem sich unendlich viele Folgenglieder beliebig annähern
 # Kriterien
 Epsilon-Kriterium => Zu jedem ε > 0 gibt es ein N, sodass für alle n >= N gilt: |an - a| < ε (präzise Definition der Konvergenz)
 Monotoniekriterium => Jede monotone und beschränkte Folge ist konvergent (monoton steigend + nach oben beschränkt => konvergent; monoton fallend + nach unten beschränkt => konvergent)
+
+test <> test21
