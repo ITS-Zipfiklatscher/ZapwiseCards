@@ -1,0 +1,118 @@
+# Fragenkatalog: IoT & Sensortechnik
+
+? Was versteht man unter „Industrie 1.0, 2.0, 3.0 und 4.0"?
+  Beschreibe die wesentlichen Merkmale jeder Stufe. [2]
+
+? Was versteht man unter DSP (Digital Signal Processor) und DSC (Digital Signal Controller)?
+  Welche Vorteile bieten diese Komponenten gegenüber einem Standard-Mikrocontroller? [2]
+
+? Was versteht man unter der Harvard-Architektur?
+  Worin unterscheidet sie sich von der Von-Neumann-Architektur? [2]
+
+? Was versteht man unter einem FPGA (Field Programmable Gate Array)?
+  Erläutere Aufbau und typische Einsatzgebiete. [2]
+
+? Was versteht man unter einem ASIC (Application Specific Integrated Circuit) und einem ASSP (Application Specific Standard Product)?
+  Erkläre den Unterschied zwischen beiden. [2]
+
+? Welche Aufgabe erfüllt ein Sensor?
+  Nenne die grundlegende Funktion und gib ein Beispiel. [2]
+
+? Was ist der Unterschied zwischen einem Mikroprozessor und einem Mikrocontroller?
+  Nenne jeweils mindestens zwei charakteristische Merkmale. [2]
+
+? Welche Metalle werden als PTC-Widerstandsthermometer zur Temperaturmessung eingesetzt?
+  Nenne mindestens zwei und erläutere die Eigenschaft, die sie für die Temperaturmessung geeignet macht. [2]
+
+? Wie ist ein Pt1000 spezifiziert?
+  Nenne Nennwiderstand, Bezugstemperatur und typischen Temperaturbereich. [2]
+
+? Wie groß ist der Temperaturkoeffizient eines Kaltleiters (NTC) auf Siliziumbasis im Vergleich zu metallischen PTC-Widerständen?
+  In welche Richtung weicht er ab und was bedeutet das für die Empfindlichkeit? [2]
+
+? Was versteht man unter Linearisierung bei Temperatursensoren?
+  Beschreibe das Prinzip und erläutere, wie eine Linearisierungsschaltung mit Spannungsquelle und Parallelwiderstand funktioniert. [2]
+
+? Erkläre, wie ein Transistor als Temperatursensor eingesetzt werden kann.
+  Beschreibe den Zusammenhang zwischen Temperatur und der Basis-Emitter-Spannung U_BE sowie eine typische Messschaltung. [2]
+
+? Was ist ein Thermoelement und was versteht man dabei unter dem isothermen Block?
+  Erkläre das Messprinzip und die Bedeutung der Referenzstelle. [2]
+
+? Welche Einheit hat der Druck und wie lautet die grundlegende Formel p = F/A?
+  Beschreibe den prinzipiellen Aufbau eines Drucksensors (z. B. piezoresistiv oder kapazitiv). [2]
+
+? Erkläre die drei Feuchtegrößen: absolute Feuchte (F_abs), Sättigungsfeuchte (F_sat) und relative Feuchte (F_rel).
+  Gib die zugehörigen Formeln bzw. Definitionen an. [2]
+
+? Beschreibe den Aufbau von kapazitiven und resistiven Feuchtesensoren.
+  Welches physikalische Prinzip nutzt jeder Sensortyp zur Feuchteerkennung? [2]
+
+? Was ist ein LDR (Light Dependent Resistor) und was ist eine Photodiode?
+  Erkläre das Funktionsprinzip beider Bauelemente und in welchem Betriebsbereich eine Photodiode typischerweise eingesetzt wird. [2]
+
+? Wie funktioniert ein Phototransistor?
+  Beschreibe den Aufbau und erkläre, wie Licht den Kollektorstrom beeinflusst. [2]
+
+? Was ist ein Optokoppler?
+  Beschreibe Aufbau und Funktionsweise und nenne einen typischen Anwendungsfall. [2]
+
+? Beschreibe den prinzipiellen Aufbau von Beschleunigungssensoren nach dem piezoresistiven und dem kapazitiven Messprinzip.
+  Welche physikalische Größe wird dabei jeweils gemessen? [2]
+
+? Erkläre die analoge Signalaufbereitung.
+  Was versteht man unter Offset-Korrektur und Gain-Einstellung, und welchen Vorteil bietet es, die Differenzspannung auf Ground zu referenzieren? [2]
+
+? Welche Alternative zur diskreten analogen Signalaufbereitung gibt es?
+  Erläutere den Einsatz eines spezifischen ASICs zur Signalaufbereitung. [2]
+
+? Welche Vorteile bietet die Signalaufbereitung mit einem Mikrocontroller gegenüber rein analoger Aufbereitung?
+  Nenne mindestens drei Vorteile. [2]
+
+? Durch welche Maßnahmen lässt sich der Energieverbrauch von Sensoren verringern?
+  Nenne mindestens drei konkrete Maßnahmen. [2]
+
+? Nenne zwei klassische analoge Interfaces zur Übertragung von Messwerten.
+  Erkläre kurz das Funktionsprinzip beider Interfaces. [2]
+
+? Welche anderen physikalischen Größen außer Spannung und Strom eignen sich zur Übertragung von Messwerten?
+  Nenne drei Beispiele und erläutere je eines kurz. [2]
+
+? Was versteht man unter einem ratiometrischen Spannungsausgang?
+  Welche Vorteile bietet dieser gegenüber einem absoluten Spannungsausgang? [2]
+
+? Sind SPI und I²C typische Interfaces für kurze Distanzen auf Platinen, oder sind auch längere Distanzen möglich?
+  Begründe deine Antwort. [2]
+
+? Welches Interface hat eine größere Datenrate: SPI oder I²C?
+  Erkläre kurz, warum das so ist. [2]
+
+? Nenne die drei typischen Schutzfunktionen bei Sensoren.
+  Erkläre jeweils kurz, wovor jede Funktion schützt. [2]
+
+? Was versteht man unter EMV (Elektromagnetische Verträglichkeit)?
+  Benenne die zwei grundlegenden Fragestellungen der EMV. [2]
+
+? Worum geht es bei der funktionalen Sicherheit (Functional Safety)?
+  Nenne ein Beispiel aus der Praxis. [2]
+
+? Wie ist das Risiko formal als Formel definiert?
+  Erkläre die Bedeutung der einzelnen Faktoren. [2]
+
+? Im Explosionsschutz gibt es zwei grundsätzliche Schutzmöglichkeiten.
+  Nenne und erkläre beide Ansätze. [2]
+
+? Wie werden Messfehler nach ihrer Ursache eingeteilt?
+  Nenne alle drei Fehlerarten und beschreibe kurz ihre Entstehung. [2]
+
+? Kann ein systematischer Messfehler korrigiert werden?
+  Begründe deine Antwort. [2]
+
+? Kann ein grober Messfehler korrigiert werden?
+  Begründe deine Antwort. [2]
+
+? Welcher statistischen Verteilung unterliegen zufällige Messfehler?
+  Nenne die Verteilung und erkläre deren charakteristische Form. [2]
+
+? Was ist der Unterschied zwischen dem absoluten und dem relativen Messfehler?
+  Gib jeweils die Definition und ein Beispiel an. [2]
