@@ -1,0 +1,107 @@
+# IoT & Sensortechnik – Begriffe und Definitionen
+
+# Industrielle Revolution
+Industrie 1.0 => Mechanisierung durch Wasser- und Dampfkraft (Ende 18. Jh.)
+Industrie 2.0 => Massenproduktion durch Elektrizität und Fließband (Anfang 20. Jh.)
+Industrie 3.0 => Automatisierung durch Elektronik, IT und SPS (ab 1970er)
+Industrie 4.0 => Vernetzung und Digitalisierung: cyberphysische Systeme, IoT, Cloud, KI (ab 2010er)
+
+# Prozessoren und Architekturen
+DSP (Digital Signal Processor) => Hochspezialisierter Prozessor für digitale Signalverarbeitung (z. B. FFT, Filter); optimiert für mathematisch-intensive Echtzeitoperationen
+DSC (Digital Signal Controller) => Kombination aus DSP und Mikrocontroller; vereint Signalverarbeitungsleistung mit Peripherie (ADC, PWM, SPI, I²C)
+Harvard-Architektur => Architektur mit physisch getrenntem Programm- und Datenspeicher mit eigenen Bussen; ermöglicht gleichzeitiges Lesen von Befehlen und Daten (höhere Geschwindigkeit als Von-Neumann)
+Von-Neumann-Architektur => Architektur mit gemeinsamem Bus für Programm- und Datenspeicher; einfacher, aber langsamer durch Bus-Konkurrenz
+FPGA (Field Programmable Gate Array) => Frei programmierbarer Schaltkreis aus konfigurierbaren Logikblöcken; im Feld per VHDL/Verilog konfigurierbar; ermöglicht parallele Verarbeitung
+ASIC (Application Specific Integrated Circuit) => Für genau eine Anwendung eines Kunden gefertigter Chip; hohe Entwicklungskosten, optimal in Performance und Energieverbrauch
+ASSP (Application Specific Standard Product) => Wie ASIC, aber als Standardprodukt für mehrere Kunden am Markt; Kompromiss zwischen Flexibilität und Spezialisierung
+Mikroprozessor => Enthält nur die CPU; Peripherie (RAM, ROM, ADC, Timer) muss extern ergänzt werden
+Mikrocontroller => Integriert CPU + Speicher (Flash, RAM) + Peripherie (ADC, Timer, UART, SPI, I²C, GPIO) auf einem Chip; kompakter und energieeffizienter für eingebettete Systeme
+
+# Sensoren – Grundlagen
+Sensor => Wandelt eine physikalische, chemische oder biologische Messgröße in ein elektrisches Signal (Spannung, Strom, Widerstand, Frequenz) um
+
+# Temperaturmessung
+PTC (Positive Temperature Coefficient) => Widerstand steigt mit der Temperatur; typische Metalle: Platin (Pt), Nickel (Ni), Kupfer (Cu)
+Pt1000 => Platinwiderstand mit Nennwiderstand 1000 Ω bei 0 °C; Temperaturkoeffizient ca. 3,85 Ω/°C (α ≈ 3,85 × 10⁻³ /K); Messbereich –200 °C bis +850 °C
+Pt100 => Platinwiderstand mit Nennwiderstand 100 Ω bei 0 °C; gleicher Koeffizient wie Pt1000, aber anfälliger für Leitungswiderstandsfehler
+Temperaturkoeffizient Silizium-PTC => Ca. +0,7 %/K bis +0,8 %/K; deutlich größer als bei Metallen (Platin: ~0,385 %/K); engerer Messbereich und schlechtere Linearität
+Linearisierung => Methode, den nichtlinearen Zusammenhang zwischen Messgröße und Ausgangsgröße in einen linearen umzuwandeln; klassisch durch Parallelwiderstand zum Sensor oder digital per Lookup-Tabelle/Polynom im Mikrocontroller
+Transistor als Temperatursensor => Basis-Emitter-Spannung U_BE sinkt um ca. –2 mV/°C; in Diodenschaltung oder Differenzschaltung (zwei Transistoren) zur temperaturpräzisen Auswertung
+Thermoelement => Zwei unterschiedliche Metalle erzeugen durch den Seebeck-Effekt eine temperaturabhängige Spannung; Messprinzip: U_mess = f(T_heiss – T_referenz)
+Isothermer Block => Metallblock, der die Vergleichsstelle eines Thermoelements auf homogener Referenztemperatur hält; Referenztemperatur wird separat gemessen (z. B. Pt100)
+
+# Druckmessung
+Druck – Einheit => Pascal (Pa); 1 bar = 100.000 Pa; 1 psi ≈ 6895 Pa
+Druck – Formel => p = F / A (Druck = Kraft / Fläche)
+Piezoresistiver Drucksensor => Membran mit Dehnmessstreifen (DMS); Druck verformt Membran → Widerstandsänderung → Wheatstone-Brücke liefert Spannungssignal
+Kapazitiver Drucksensor => Membran bildet Elektrode eines Kondensators; Druckverformung ändert Abstand → Kapazitätsänderung wird ausgewertet
+Piezoelektrischer Drucksensor => Quarzkristall erzeugt bei Druck eine Ladung; geeignet für dynamische Druckmessung
+
+# Feuchtemessung
+Absolute Feuchte (F_abs) => Masse des Wasserdampfes pro Volumen Luft [g/m³]
+Sättigungsfeuchte (F_sat) => Maximale Menge Wasserdampf bei gegebener Temperatur [g/m³]; steigt mit der Temperatur
+Relative Feuchte (F_rel) => F_rel = F_abs / F_sat × 100 [%]
+Kapazitiver Feuchtesensor => Polymerschicht zwischen Elektroden absorbiert Feuchte → Dielektrizitätskonstante und Kapazität ändern sich; Auswertung per Kapazität-zu-Spannung-Wandler
+Resistiver Feuchtesensor => Feuchtigkeitsempfindliche Schicht ändert Leitfähigkeit mit Feuchte; Auswertung mit Wechselstrom (Gleichstrom würde Elektrolyse verursachen)
+
+# Optische Bauelemente
+LDR (Light Dependent Resistor) => Widerstand sinkt bei Lichteinfall (Fotokonduktor auf CdS-Basis); langsame Reaktionszeit; für einfache Lichtschalter
+Photodiode => In Sperrrichtung betrieben; Licht erzeugt Elektronen-Loch-Paare → Sperrstrom steigt proportional zur Bestrahlungsstärke; sehr schnell
+Transimpedanzverstärker => OPV-Schaltung zur I→U-Wandlung; wandelt den Photostrom der Photodiode in eine auswertbare Spannung um
+Phototransistor => Licht trifft auf Basis-Kollektor-Sperrschicht → erzeugt Fotostrom wie ein Basisstrom → Kollektorstrom wird verstärkt; empfindlicher als Photodiode, aber langsamer
+Optokoppler => LED (Sender) + Phototransistor (Empfänger) galvanisch getrennt in einem Gehäuse; überträgt Signal ohne elektrische Verbindung; Anwendung: Potentialtrennung, Schutz vor Störungen
+
+# Beschleunigungssensoren
+Piezoresistiver Beschleunigungssensor => Seismische Masse auf Biegefeder mit DMS; Beschleunigung lenkt Masse aus → Dehnung → Widerstandsänderung → Brückenspannung
+Kapazitiver Beschleunigungssensor => Seismische Masse zwischen festen Elektroden (MEMS); Auslenkung ändert Kapazität; geringere Temperaturabhängigkeit, kein DC-Drift
+
+# Signalaufbereitung
+Analoge Signalkette => Sensor → Verstärker (Gain) → Offset-Korrektur → Filter → ADC
+Offset => Additive Korrektur; verschiebt das Signal auf den gewünschten Nullpunkt
+Gain => Multiplikative Verstärkung; skaliert den Sensorbereich auf den ADC-Eingangsbereich
+Differenzspannung auf Ground referenziert => Instrumentenverstärker unterdrückt Gleichtaktstörungen (Rauschen, Einstreuungen) und bezieht die Nutzsignalspannung auf GND; erhöht Störsicherheit
+ASIC zur Signalaufbereitung => Integriert Verstärkung, Offset-Korrektur, Filterung und ADC in einem Chip; kleinerer Footprint, weniger Fehlerquellen, optimiert für den Sensortyp
+Signalaufbereitung mit Mikrocontroller => Ermöglicht digitale Filterung (FIR/IIR), Linearisierung per Lookup-Tabelle, individuelle Kalibrierung im EEPROM, Ausgabe über digitale Schnittstellen und Firmware-Updates
+
+# Energieverbrauch
+Energiesparen bei Sensoren => Sleep-Modi, Duty Cycling (gepulster Betrieb), niedrigere Versorgungsspannung, ereignisgesteuerte Messung per Interrupt, Low-Power-Komponenten, lokale Datenreduktion (Edge-Processing)
+
+# Interfaces – Analog
+0–10 V Interface => Klassisches analoges Spannungsinterface; einfach, aber störanfällig bei langen Leitungen
+4–20 mA Stromschleife => Klassisches analoges Strominterface; störsicher (Strom unabhängig vom Leitungswiderstand); 4 mA = Nullpunkt; Leitungsbruch erkennbar bei 0 mA
+Frequenz (f) als Interface => Messwert als Frequenz eines Signals kodiert; störsicher, leitungswiderstandsunabhängig
+PWM als Interface => Tastverhältnis (Duty Cycle) repräsentiert den Messwert
+Phase als Interface => Phasenverschiebung zwischen zwei Signalen als Informationsträger (z. B. bei kapazitiven Sensoren)
+Ratiometrischer Spannungsausgang => Ausgangsspannung proportional zur Versorgungsspannung (z. B. 10–90 % von U_VCC); Schwankungen von U_VCC heben sich auf, wenn ADC dieselbe Referenz verwendet
+
+# Interfaces – Digital
+SPI => Serielles Board-Level-Interface; Vollduplex (MOSI/MISO + CLK); typisch 1–50 Mbit/s; keine definierte Distanzgrenze im Standard; für kurze Distanzen (< wenige Meter)
+I²C => Serielles Board-Level-Interface; Halbduplex; Open-Drain mit Pull-up; Standard 100 kbit/s, Fast Mode 400 kbit/s, Fast Mode Plus 1 Mbit/s; für kurze Distanzen
+SPI vs. I²C Datenrate => SPI hat größere Datenrate (bis 50 Mbit/s); I²C maximal 3,4 Mbit/s (High Speed Mode)
+
+# Schutzfunktionen
+Verpolungsschutz => Schutz vor falsch gepolter Versorgungsspannung (z. B. Schutzdiode oder P-Kanal-MOSFET)
+Überspannungsschutz => Schutz vor Spannungsspitzen (z. B. TVS-Dioden, Zener-Dioden)
+Kurzschlussschutz => Schutz des Ausgangs bei Kurzschluss (z. B. Strombegrenzung, Foldback-Charakteristik)
+
+# EMV
+EMV (Elektromagnetische Verträglichkeit) => Ein Gerät soll in seiner elektromagnetischen Umgebung ordnungsgemäß funktionieren, ohne andere Geräte unzulässig zu stören
+Störaussendung (Emission) => Fragerichtung EMV: Wie viel elektromagnetische Störung sendet das Gerät aus? (Gerät als Störquelle)
+Störfestigkeit (Immunität) => Fragerichtung EMV: Wie gut verträgt das Gerät externe elektromagnetische Störungen? (Gerät als Störsenke)
+
+# Funktionale Sicherheit und Risiko
+Funktionale Sicherheit => Stellt sicher, dass ein System bei Fehlern in einen sicheren Zustand übergeht; geregelt durch IEC 61508 (allgemein) und ISO 26262 (Automotive); Kernkonzept: SIL / ASIL
+Risiko – Formel => Risiko = Eintrittswahrscheinlichkeit × Schadensausmaß (R = P × S)
+SIL (Safety Integrity Level) => Maß für die erforderliche Zuverlässigkeit sicherheitsrelevanter Funktionen (SIL 1–4)
+
+# Explosionsschutz
+Primärer Explosionsschutz => Entstehen explosionsfähiger Atmosphären verhindern (z. B. Belüftung, Inertisierung, Abdichten)
+Sekundärer Explosionsschutz => Betriebsmittel so konstruieren, dass sie keine Zündquellen darstellen (z. B. druckfeste Kapselung Ex-d, Eigensicherheit Ex-i, erhöhte Sicherheit Ex-e)
+
+# Messfehler
+Systematischer Fehler => Reproduzierbar, gleiche Richtung, durch bekannte Ursachen (z. B. Offset, falsche Kalibrierung); kann korrigiert werden
+Zufälliger Fehler => Statistisch verteilt, nicht vorhersehbar, durch unkontrollierbare Einflüsse (Rauschen); unterliegt der Normalverteilung (Gauß); durch Mittelwertbildung reduzierbar, nicht einzeln korrigierbar
+Grober Fehler (Ausreißer) => Durch Bedienungsfehler, Gerätedefekte oder äußere Einwirkungen; kann nicht korrigiert werden; wird durch statistische Methoden (z. B. Grubbs-Test) erkannt und verworfen
+Normalverteilung (Gauß) => Verteilung zufälliger Messfehler; Großteil der Messwerte nahe am wahren Wert; Häufigkeit nimmt symmetrisch mit größerer Abweichung ab; charakterisiert durch μ und σ
+Absoluter Messfehler (ΔX) => Differenz zwischen gemessenem Wert und wahrem Wert (ΔX = X_mess – X_wahr); Einheit der Messgröße (z. B. ±0,5 °C)
+Relativer Messfehler (δX) => Verhältnis des absoluten Fehlers zum wahren Wert (δX = ΔX / X_wahr × 100); dimensionslos in Prozent [%]
